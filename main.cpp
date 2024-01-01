@@ -16,6 +16,7 @@ int main() {
         cout << "3. Compare file size\n";
         cout << "4. Print Huffman Tree by character\n";
         cout << "5. Print Huffman Tree by frequency\n";
+        cout << "6. Print each character Huffman Codes\n";
         cout << "0. Quit\n";
         cout << "Please input your choice: ";
         cin >> choice;
@@ -37,6 +38,8 @@ int main() {
             case 5:
                 huffman_tree.graph_frequency(cout);
                 break;
+            case 6:
+                huffman_tree.printHuffmanCodes();
             default:
                 cout<<"Please input correct choice \n";
         }
