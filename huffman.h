@@ -27,20 +27,12 @@ private:
     priority_queue<HBinNode*, vector<HBinNode*>, CompareNodes> minHeap;
     unordered_map<char, string> huffmanCodes;
     HBinNode* root;
+   void generateCodes(HBinNode* root, string code);
 public:
     HBinNode *getRoot() const;
-
-private:
-
-    void generateCodes(HBinNode* root, string code);
-
-public:
     HuffmanTree(vector<int> frequencies, vector<char> characters);
-
     void buildHuffmanCodes();
-
     void printHuffmanCodes();
-
     int Height();
     void graph_frequency(ostream& out);
     void graph_char(ostream& out);

@@ -31,7 +31,7 @@ HuffmanTree::HuffmanTree(vector<int> frequencies, vector<char> characters) {
         minHeap.pop();
 
         HBinNode* newNode = new HBinNode(left->frequency + right->frequency, '#', left, right);
-        left->parent = newNode;
+        left-> parent = newNode;
         right->parent = newNode;
 
         minHeap.push(newNode);

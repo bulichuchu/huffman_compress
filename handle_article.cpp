@@ -15,7 +15,7 @@ void get_frequency_and_char(vector<int> &get_frequency, vector<char> &get_char) 
             continue;
         }
         auto it = find(get_char.begin(), get_char.end(), c);
-        if (it == get_char.end()) {// not found
+        if (it == get_char.end()) {
             get_char.push_back(c);
             get_frequency.push_back(1);
         } else {
@@ -37,7 +37,7 @@ void generate_compressed_file(HuffmanTree &huffman_tree) {
     huffman_tree.buildHuffmanCodes();
 
     char c;
-    string buffer; // Buffer to hold bits
+    string buffer;
 
     while (inputFile.get(c)) {
         if (c == '\n' || c == '\r' || c == '\t' ) {
@@ -55,8 +55,6 @@ void generate_compressed_file(HuffmanTree &huffman_tree) {
             }
         }
     }
-
-    // Write the remaining bits in the buffer, if any
     if (!buffer.empty()) {
         buffer.append(8 - buffer.size(), '0');
         char byte = static_cast<char>(bitset<8>(buffer).to_ulong());
@@ -91,7 +89,7 @@ void decompress_file(HuffmanTree &huffman_tree) {
     }
 
     char c;
-    string buffer; // Buffer to hold bits
+    string buffer;
     HBinNode* current = huffman_tree.getRoot();
 
     while (inputFile.get(c)) {
